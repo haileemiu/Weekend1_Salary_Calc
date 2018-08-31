@@ -15,8 +15,8 @@ _employee first name, last name, ID number, job title, annual salary_.
 
 - [ ] A 'Submit' button should collect the form information, 
 - [x] store the information to calculate monthly costs, 
-- [ ] append information to the DOM 
-and clear the input fields. 
+- [x] append information to the DOM 
+- [x] and clear the input fields. 
 
 - [ ] Using the stored information, 
 calculate monthly costs 

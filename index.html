@@ -13,14 +13,30 @@
   <h1>Salary Calculator</h1>
 
   <div id="inputForm">
-    <input type="text" placeholder="first name">
-    <input type="text" placeholder="last name">
-    <input type="number" placeholder="ID number">
-    <input type="text" placeholder="job title">
-    <input type="number" placeholder="annual salary">
+    <input type="text" placeholder="first name" id="first">
+    <input type="text" placeholder="last name" id="last">
+    <input type="number" placeholder="ID number" id="id">
+    <input type="text" placeholder="job title" id="title">
+    <input type="number" placeholder="annual salary" id="salary">
     <button id="submitButton">Submit</button>
-
   </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Annual Salary</th>
+      </tr>
+    </thead>
+
+    <tbody id="employeeTableBody">
+
+    </tbody>
+
+  </table>
 
 
 </body>

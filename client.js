@@ -13,21 +13,41 @@ class Employee{
   }
 }
 
+// creating a new employee & pushing to the array
+function newEmployee(firstName, lastName, idNumber, jobTitle, annualSalary) {
+  arrayEmployeeInfo.push(new Employee(firstName, lastName, idNumber, jobTitle, annualSalary));
+}
+
 // onReady function
 // click of submit button
 function onReady() {
   $('#submitButton').on('click', addEmployeeInfo);
 }
 
-// creating a new employee & pushing to the array
-function newEmployee(firstName, lastName, idNumber, jobTitle, annualSalary) {
-  arrayEmployeeInfo.push(new Employee(firstName, lastName, idNumber, jobTitle, annualSalary));
-}
-
 // collect form info
-// add row
 function addEmployeeInfo(){
-  
+  //declaring variables to use in append
+  let first = $('#first').val();
+  let last = $('#last').val();
+  let id = $('#id').val();
+  let title = $('#title').val();
+  let salary = $('#salary').val();
+
+  // add a row
+  $('#employeeTableBody').append(`
+  <tr>
+    <td>` + first + `</td>
+    <td>` + last + `</td>
+    <td>` + id + `</td>
+    <td>` + title + `</td>
+    <td>` + salary + `</td>
+  </tr>`);
+
+  $('#first').val('');
+  $('#last').val('');
+  $('#id').val('');
+  $('#title').val('');
+  $('#salary').val('');
 }
 
 // dumby data
