@@ -14,7 +14,7 @@ input form that collects
 _employee first name, last name, ID number, job title, annual salary_.
 
 - [ ] A 'Submit' button should collect the form information, 
-- [ ] store the information to calculate monthly costs, 
+- [x] store the information to calculate monthly costs, 
 - [ ] append information to the DOM 
 and clear the input fields. 
 
