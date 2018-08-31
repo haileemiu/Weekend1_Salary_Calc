@@ -15,7 +15,7 @@ class Employee{
 
 // creating a new employee & pushing to the array
 function newEmployee(firstName, lastName, idNumber, jobTitle, annualSalary) {
-  arrayEmployeeInfo.push(new Employee(firstName, lastName, idNumber, jobTitle, annualSalary));
+  
 }
 
 // onReady function
@@ -24,7 +24,7 @@ function onReady() {
   $('#submitButton').on('click', addEmployeeInfo);
 }
 
-// collect form info
+
 function addEmployeeInfo(){
   //declaring variables to use in append
   let first = $('#first').val();
@@ -32,6 +32,8 @@ function addEmployeeInfo(){
   let id = $('#id').val();
   let title = $('#title').val();
   let salary = $('#salary').val();
+
+  arrayEmployeeInfo.push(new Employee(first, last, id, title, salary));
 
   // add a row
   $('#employeeTableBody').append(`
@@ -41,13 +43,19 @@ function addEmployeeInfo(){
     <td>` + id + `</td>
     <td>` + title + `</td>
     <td>` + salary + `</td>
+    <td><button class="`+ id +`">Delete</button></td>
   </tr>`);
 
+  // clear inputs
   $('#first').val('');
   $('#last').val('');
   $('#id').val('');
   $('#title').val('');
   $('#salary').val('');
+
+  // collect form info
+  console.log($('.'+ id).className);
+  
 }
 
 // dumby data
