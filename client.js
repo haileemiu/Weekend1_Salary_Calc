@@ -1,24 +1,24 @@
 $(document).ready(onReady);
 
 const arrayEmployeeInfo = [
-  {
-    first: 'Hailee',
-    last: 'Ortiz',
-    id: 380,
-    title: 'Developer',
-    salary: 60000
-  }, 
-  {
-    first: 'Nikko',
-    last: 'Miu',
-    id: 570,
-    title: 'Engineer',
-    salary: 80000
-  }
+  // {
+  //   first: 'Hailee',
+  //   last: 'Ortiz',
+  //   id: 380,
+  //   title: 'Developer',
+  //   salary: 60000
+  // }, 
+  // {
+  //   first: 'Nikko',
+  //   last: 'Miu',
+  //   id: 570,
+  //   title: 'Engineer',
+  //   salary: 80000
+  // }
 ];
 
 // constructor of new employee info
-class Employee{
+class Employee {
   constructor(firstName, lastName, idNumber, jobTitle, annualSalary) {
     this.first = firstName;
     this.last = lastName;
@@ -32,6 +32,7 @@ class Employee{
 // click of submit button
 function onReady() {
   $('#submitButton').on('click', addEmployeeInfo);
+  $('#employeeTableBody').on('click', '.deleteButtons', deleteEmployeeInfo);
 }
 
 
@@ -41,21 +42,22 @@ function addEmployeeInfo() {
   let last = $('#last').val();
   let id = $('#id').val();
   let title = $('#title').val();
-  let salary = $('#salary').val();
+  let salary = Number($('#salary').val());
 
-  arrayEmployeeInfo.push(new Employee(first, last, id, title, salary));
+
 
   // add a row
   $('#employeeTableBody').append(`
-  <tr>
+  <tr data-id="` + arrayEmployeeInfo.length + `">
     <td>` + first + `</td>
     <td>` + last + `</td>
     <td>` + id + `</td>
     <td>` + title + `</td>
     <td>` + salary + `</td>
-    <td><button class="`+ id +`">Delete</button></td>
+    <td><button class="deleteButtons">Delete</button></td>
   </tr>`);
-//not sure about this class id thing//
+
+  arrayEmployeeInfo.push(new Employee(first, last, id, title, salary));
 
   // clear inputs
   $('#first').val('');
@@ -66,15 +68,37 @@ function addEmployeeInfo() {
 
   // collect form info
   //console.log($('.'+ id).className);
-  
+
   totalMonthly();
 }
+
+
 // calculate monthly costs
 function totalMonthly() {
-  let sum = 0;
+  let result = 0;
   for (let i = 0; i < arrayEmployeeInfo.length; i++) {
-    sum += arrayEmployeeInfo[i].salary;
+    if (arrayEmployeeInfo[i]) {
+      result += arrayEmployeeInfo[i].salary;
+    }
   }
+  result = (result / 12).toFixed(2);
 
-  $('#totalMonthly').html(sum / 12);
+  $('#totalMonthly').html(result);
+
+  // conditional to color red if > 20,000
+  if (result > 20000) {
+    $('#totalMonthly').css('background-color', 'red');
+  }
+}
+
+// delete row & update monthly income
+function deleteEmployeeInfo() {
+  // remove index of array
+  arrayEmployeeInfo[$(this).parents('tr').data('id')] = undefined;
+
+  // remove row
+  $(this).parents('tr').remove();
+
+  // recalculate
+  totalMonthly();
 }
