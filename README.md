@@ -13,7 +13,7 @@ and adds salaries up to report monthly costs.
 input form that collects 
 _employee first name, last name, ID number, job title, annual salary_.
 
-- [ ] A 'Submit' button should collect the form information, 
+- [x] A 'Submit' button should collect the form information, 
 - [x] store the information to calculate monthly costs, 
 - [x] append information to the DOM 
 - [x] and clear the input fields. 

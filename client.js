@@ -1,6 +1,21 @@
 $(document).ready(onReady);
 
-const arrayEmployeeInfo = [];
+const arrayEmployeeInfo = [
+  {
+    first: 'Hailee',
+    last: 'Ortiz',
+    id: 380,
+    title: 'Developer',
+    salary: 60000
+  }, 
+  {
+    first: 'Nikko',
+    last: 'Miu',
+    id: 570,
+    title: 'Engineer',
+    salary: 80000
+  }
+];
 
 // constructor of new employee info
 class Employee{
@@ -13,11 +28,6 @@ class Employee{
   }
 }
 
-// creating a new employee & pushing to the array
-function newEmployee(firstName, lastName, idNumber, jobTitle, annualSalary) {
-  
-}
-
 // onReady function
 // click of submit button
 function onReady() {
@@ -25,7 +35,7 @@ function onReady() {
 }
 
 
-function addEmployeeInfo(){
+function addEmployeeInfo() {
   //declaring variables to use in append
   let first = $('#first').val();
   let last = $('#last').val();
@@ -45,6 +55,7 @@ function addEmployeeInfo(){
     <td>` + salary + `</td>
     <td><button class="`+ id +`">Delete</button></td>
   </tr>`);
+//not sure about this class id thing//
 
   // clear inputs
   $('#first').val('');
@@ -54,9 +65,16 @@ function addEmployeeInfo(){
   $('#salary').val('');
 
   // collect form info
-  console.log($('.'+ id).className);
+  //console.log($('.'+ id).className);
   
+  totalMonthly();
 }
+// calculate monthly costs
+function totalMonthly() {
+  let sum = 0;
+  for (let i = 0; i < arrayEmployeeInfo.length; i++) {
+    sum += arrayEmployeeInfo[i].salary;
+  }
 
-// dumby data
-// newEmployee('Hailee', 'Miu', 389493, 'Developer', 60000)
+  $('#totalMonthly').html(sum / 12);
+}
