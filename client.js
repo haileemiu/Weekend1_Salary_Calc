@@ -1,7 +1,7 @@
 $(document).ready(onReady);
 
-
 const arrayEmployeeInfo = [
+  // Test Data
   // {
   //   first: 'Hailee',
   //   last: 'Ortiz',
@@ -36,28 +36,27 @@ function onReady() {
   $('#employeeTableBody').on('click', '.deleteButtons', deleteEmployeeInfo);
 }
 
-
 function addEmployeeInfo() {
   //declaring variables to use in append
-  let first = $('#first').val();
-  let last = $('#last').val();
-  let id = $('#id').val();
-  let title = $('#title').val();
-  let salary = Number($('#salary').val());
-
-
+  const first = $('#first').val();
+  const last = $('#last').val();
+  const id = $('#id').val();
+  const title = $('#title').val();
+  const salary = Number($('#salary').val());
 
   // add a row
   $('#employeeTableBody').append(`
-  <tr data-id="` + arrayEmployeeInfo.length + `">
-    <td>` + first + `</td>
-    <td>` + last + `</td>
-    <td>` + id + `</td>
-    <td>` + title + `</td>
-    <td>` + salary + `</td>
-    <td><button class="deleteButtons">Delete</button></td>
-  </tr>`);
+    <tr data-id="` + arrayEmployeeInfo.length + `">
+      <td>` + first + `</td>
+      <td>` + last + `</td>
+      <td>` + id + `</td>
+      <td>` + title + `</td>
+      <td>` + salary + `</td>
+      <td><button class="deleteButtons">Delete</button></td>
+    </tr>
+  `);
 
+  // add new employee to array
   arrayEmployeeInfo.push(new Employee(first, last, id, title, salary));
 
   // clear inputs
@@ -67,14 +66,10 @@ function addEmployeeInfo() {
   $('#title').val('');
   $('#salary').val('');
 
-  // collect form info
-  //console.log($('.'+ id).className);
-
+  // calculate monthly costs
   totalMonthly();
 }
 
-
-// calculate monthly costs
 function totalMonthly() {
   let result = 0;
   for (let i = 0; i < arrayEmployeeInfo.length; i++) {
