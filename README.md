@@ -44,7 +44,8 @@ No files have been provided. Fork and clone this repository or create a new GitH
 
 ## Things to fix
 - [x] math is off
-- [] fix highlighting conditional
+- [x] fix highlighting conditional
+- [ ] add bootstrap
 
 
 

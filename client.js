@@ -84,11 +84,14 @@ function totalMonthly() {
   }
   result = (result / 12).toFixed(2);
 
-  $('#totalMonthly').html(result);
+  $('#totalMonthly').html('$' + result);
 
   // conditional to color red if > 20,000
   if (result > 20000) {
-    $('#totalMonthly').css('background-color', 'red');
+    $('#totalMonthly').css('background-color', 'red').css('color', 'white');
+  } else {
+    // remove red when below/deleted
+    $('#totalMonthly').css('background-color', 'transparent').css('color', 'black');
   }
 }
 
