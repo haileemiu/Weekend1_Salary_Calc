@@ -5,56 +5,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="jquery-3.3.1.min .js"></script>
+  <script src="jquery-3.3.1.min.js"></script>
   <script src="client.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <title>Salary Calculator</title>
 </head>
 
 <body>
-  <h1>Salary Calculator</h1>
-  <div id="inputForm">
-    <input type="text" placeholder="first name" id="first">
-    <input type="text" placeholder="last name" id="last">
-    <input type="number" placeholder="ID number" id="id">
-    <input type="text" placeholder="job title" id="title">
-    <input type="number" placeholder="annual salary" id="salary">
-    <button id="submitButton">Submit</button>
+  <div class="container-fluid">
+    <h1>Salary Calculator</h1>
+    <div class="row" id="inputForm">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="first name" id="first">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="last name" id="last">
+      </div>
+      <div class="col">
+        <input type="number" class="form-control" placeholder="ID number" id="id">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="job title" id="title">
+      </div>
+      <div class="col">
+        <input type="number" class="form-control" placeholder="annual salary" id="salary">
+      </div>
+      <div class="col">
+        <button id="submitButton" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Annual Salary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody id="employeeTableBody">
+        <!-- test rows -->
+        <!-- <tr>
+            <td>Hailee</td>
+            <td>Ortiz</td>
+            <td>380</td>
+            <td>Developer</td>
+            <td>60000</td>
+          </tr>
+          <tr>
+            <td>Nikko</td>
+            <td>Miu</td>
+            <td>570</td>
+            <td>Engineer</td>
+            <td>80000</td>
+          </tr>
+          <tr>
+            <td>Meagan</td>
+            <td>Ortiz</td>
+            <td>345</td>
+            <td>Teacher</td>
+            <td>30000</td>
+          </tr> -->
+      </tbody>
+      <tr style="background: #fff">
+        <td colspan="4" class="text-right">Total Monthly</td>
+        <td><span id="totalMonthly">$0</span></td>
+        <td></td>
+      </tr>
+    </table>
   </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Annual Salary</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-
-    <tbody id="employeeTableBody">
-      <!-- test rows -->
-      <!-- <tr>
-        <td>Hailee</td>
-        <td>Ortiz</td>
-        <td>380</td>
-        <td>Developer</td>
-        <td>60000</td>
-      </tr>
-      <tr>
-          <td>Nikko</td>
-          <td>Miu</td>
-          <td>570</td>
-          <td>Engineer</td>
-          <td>80000</td>
-        </tr> -->
-    </tbody>
-  </table>
-
-  <div>Total Monthly: <span id="totalMonthly">$0</span></div>
-
 </body>
 
 </html>

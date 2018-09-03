@@ -51,8 +51,8 @@ function addEmployeeInfo() {
       <td>` + last + `</td>
       <td>` + id + `</td>
       <td>` + title + `</td>
-      <td>` + salary + `</td>
-      <td><button class="deleteButtons">Delete</button></td>
+      <td>$` + salary + `</td>
+      <td><button class="deleteButtons btn btn-danger btn-sm">Delete</button></td>
     </tr>
   `);
 
