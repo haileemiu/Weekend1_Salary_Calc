@@ -77,7 +77,10 @@ function totalMonthly() {
       result += arrayEmployeeInfo[i].salary;
     }
   }
+
   result = (result / 12).toFixed(2);
+  result = parseFloat(result);
+  result = result.toLocaleString();
 
   $('#totalMonthly').html('$' + result);
 
