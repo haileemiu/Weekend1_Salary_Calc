@@ -1,22 +1,6 @@
 $(document).ready(onReady);
 
-const arrayEmployeeInfo = [
-  // Test Data
-  // {
-  //   first: 'Hailee',
-  //   last: 'Ortiz',
-  //   id: 380,
-  //   title: 'Developer',
-  //   salary: 60000
-  // }, 
-  // {
-  //   first: 'Nikko',
-  //   last: 'Miu',
-  //   id: 570,
-  //   title: 'Engineer',
-  //   salary: 80000
-  // }
-];
+const arrayEmployeeInfo = [];
 
 // constructor of new employee info
 class Employee {
@@ -71,16 +55,15 @@ function addEmployeeInfo() {
 }
 
 function totalMonthly() {
+  // adding all employees
   let result = 0;
   for (let i = 0; i < arrayEmployeeInfo.length; i++) {
     if (arrayEmployeeInfo[i]) {
       result += arrayEmployeeInfo[i].salary;
     }
   }
-
+  // dividing 12 & formating
   result = (result / 12).toFixed(2);
-  result = parseFloat(result);
-  result = result.toLocaleString();
 
   $('#totalMonthly').html('$' + result);
 
